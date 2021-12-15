@@ -1,0 +1,55 @@
+What is KnapSack Problem?
+->A knapsack (kind of shoulder bag) with limited weight capacity.
+Few items each having some weight and value.
+
+KnapSack problem means -:items should be placed into the knapsack such that-
+(i) The value or profit obtained by putting the items into the knapsack is maximum.
+(ii) And the weight limit of the knapsack does not exceed.
+
+KnapSack Problem has 2 variants->
+1->Fractional Knapsack Problem
+2->0/1 Knapsack Problem
+
+In Fractional Knapsack Problem,
+
+As the name suggests, items are divisible here.
+We can even put the fraction of any item into the knapsack if taking the complete item is not possible.
+It is solved using Greedy Method.
+
+
+Fractional knapsack problem is solved using greedy method in the these steps->
+
+Step-1-->For each item, compute its value/weight ratio.
+
+Step-2-->Arrange all the items in decreasing order of their value/weight ratio.
+
+Step-3-->Start putting the items into the knapsack beginning from the item with the highest ration.
+We will put as many items as we can into the knapsack.
+
+Time Complexity-->The main time taking step is the sorting of all the items in decreasing order of their value/weight ration.
+
+->If the items are already arranged in the required order, then while loop takes O(n) time
+->The average time complexity of Quick Sort is O(nlogn)
+->Total time taken including the sort is O(nlogn)
+
+Code->
+public class MyClass{
+    public static void main(String[] args){
+        int[] wt = {5, 10, 15, 22, 25};
+        int[] val = {30, 40, 45, 77, 90};
+        int W = 60;
+        int n = wt.length;
+        int[][] dp = new int[n+1][W+1];
+        for(int i=1;i<=n;i++){
+            for(int j=1;j<=W;j++){
+                if(wt[i-1]<=j){
+                    dp[i][j] = Math.max(dp[i-1][j],val[i-1]+dp[i-1][j-wt[i-1]]);
+                }
+                else{
+                    dp[i][j] = dp[i-1][j];
+                }
+            }
+        }
+        System.out.println(dp[n][W]);
+    }
+}

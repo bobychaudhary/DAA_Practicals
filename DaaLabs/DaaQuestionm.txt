@@ -1,0 +1,11 @@
+Algo-> defination,
+Algo Design(Approach)Applications->D&C, greedy, DP
+Branch& Bound, Backtracking difference
+BFS, DFS
+difference between prims, and puskarss
+
+
+  
+        fractional 
+        activity
+        dynamic programming or greedy

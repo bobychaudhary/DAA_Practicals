@@ -1,0 +1,122 @@
+Bubble Sorting-->
+Bubble sort algorithm is known as the simplest sorting algorithm.
+
+
+Code-->
+class BubbleSortExample {
+    static void bubbleSort(int[] arr) {
+        int n = arr.length;
+        int temp = 0;
+        for(int i=0; i < n; i++){
+            for(int j=1; j < (n-i); j++){
+                if(arr[j-1] > arr[j]){
+                    temp = arr[j-1];
+                    arr[j-1] = arr[j];
+                    arr[j] = temp;
+                }}}}
+    public static void main(String[] args) {
+        int arr[] ={3,60,35,2,45,320,5};
+
+        System.out.println("Array Before Bubble Sort");
+        for(int i=0; i < arr.length; i++){
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+
+        bubbleSort(arr);
+
+        System.out.println("Array After Bubble Sort");
+        for(int i=0; i < arr.length; i++){
+            System.out.print(arr[i] + " ");
+        }
+
+    }
+}
+
+Output->
+Array Before Bubble Sort
+3 60 35 2 45 320 5 
+Array After Bubble Sort
+2 3 5 35 45 60 320 
+
+Best Case-->Already Sorted 
+Example->[1,2,3,4,5,6,7,8]
+Complexity->O(n)
+
+Worst Case-->None of element is sorted
+Example->[8,7,6,5,4,3,2,1]
+Complexity->O(n^2)
+
+
+
+
+Insertion Sort-->Insertion sort is a simple sorting algorithm that builds the final sorted array (or list) one item at a time. It is much less efficient on large lists than more advanced algorithms such as quicksort, heapsort, or merge sort. 
+
+code->
+
+class InsertionSort
+{
+    /*Function to sort array using insertion sort*/
+    void sort(int arr[])
+    {
+        int n = arr.length;
+        for (int i=1; i<n; ++i)
+        {
+            int key = arr[i];
+            int j = i-1;
+
+            /* Move elements of arr[0..i-1], that are
+            greater than key, to one position ahead
+            of their current position */
+            while (j>=0 && arr[j] > key)
+            {
+                arr[j+1] = arr[j];
+                j = j-1;
+            }
+            arr[j+1] = key;
+        }
+    }
+    /* A utility function to print array of size n*/
+    static void printArray(int arr[])
+    {
+        int n = arr.length;
+        for (int i=0; i<n; ++i)
+            System.out.print(arr[i] + " ");
+        System.out.println();
+    }
+    public static void main(String args[])
+    {
+        int arr[] = {12, 11, 13, 5, 6};
+        System.out.println("Array before Insertion Sort");
+        for(int i=0; i < arr.length; i++){
+            System.out.print(arr[i] + " ");}
+        InsertionSort ob = new InsertionSort();
+        ob.sort(arr);
+        System.out.println("\nArray After Bubble Sort");
+
+        printArray(arr);
+    }
+}
+
+Output->
+Array before Insertion Sort
+12 11 13 5 6 
+Array After Bubble Sort
+5 6 11 12 13 
+
+
+
+Worst Case Time Complexity [ Big-O ]: O(n2)
+
+None of element is sorted
+Example->[8,7,6,5,4,3,2,1]
+Complexity->O(n^2)
+
+
+Best Case Time Complexity [Big-omega]: O(n)
+
+Best Case-->Already Sorted 
+Example->[1,2,3,4,5,6,7,8]
+
+Average Time Complexity [Big-theta]: O(n2)
+

@@ -1,0 +1,99 @@
+Selection Sort->Selection sort is a simple sorting algorithm. This sorting algorithm is an in-place comparison-based algorithm in which the list is divided into two parts, the sorted part at the left end and the unsorted part at the right end. Initially, the sorted part is empty and the unsorted part is the entire list.
+
+Code->import java.util.Arrays;
+
+class SelectionSort1 {
+    void selectionSort(int array[]) {
+        int size = array.length;
+
+        for (int step = 0; step < size - 1; step++) {
+            int min_idx = step;
+
+            for (int i = step + 1; i < size; i++) {
+
+                // To sort in descending order, change > to < in this line.
+                // Select the minimum element in each loop.
+                if (array[i] < array[min_idx]) {
+                    min_idx = i;
+                }
+            }
+
+            // put min at the correct position
+            int temp = array[step];
+            array[step] = array[min_idx];
+            array[min_idx] = temp;
+        }
+    }
+
+    public static void main(String args[]) {
+        int[] data = { 20, 12, 10, 15, 2 };
+        SelectionSort1 ss = new SelectionSort1();
+        ss.selectionSort(data);
+        System.out.println("Sorted Array in Ascending Order: ");
+        System.out.println(Arrays.toString(data));
+    }
+}
+
+Output->
+Sorted Array in Ascending Order: 
+[2, 10, 12, 15, 20]
+
+
+Complexity->
+
+Worst Case Time Complexity is: O(N2)
+Average Case Time Complexity is: O(N2)
+Best Case Time Complexity is: O(N2)
+Space Complexity: O(1)
+
+The number of swaps in Selection Sort
+
+Worst case: O(N)
+Average Case: O(N)
+Best Case: O(1)
+
+
+
+
+Linear Search->In Linear Search a sequential search is made over all items one by one. Every item is checked and if a match is found then that particular item is returned, otherwise the search continues till the end of the data collection.
+
+code->class LinearSearch {  
+static int linearSearch(int a[], int n, int val) {  
+  // Going through array sequencially  
+  for (int i = 0; i < n; i++)  
+    {  
+        if (a[i] == val)  
+        return i+1;  
+    }  
+  return -1;  
+}  
+public static void main(String args[]) {  
+  int a[] = {55, 29, 10, 40, 57, 41, 20, 24, 45}; 
+  int val = 10; 
+  int n = a.length;   
+  int res = linearSearch(a, n, val); 
+  System.out.println();  
+  System.out.print("The elements of the array are - ");  
+  for (int i = 0; i < n; i++)  
+  System.out.print(" " + a[i]);  
+  System.out.println();  
+  System.out.println("Element to be searched is - " + val);  
+  if (res == -1)  
+  System.out.println("Element is not present in the array");  
+  else  
+  System.out.println("Element is present at " + res +" position of array");  
+}  
+}  
+
+Output->
+The elements of the array are -  566 34 76 34 11 88 44 2 45 76
+Element to be searched is - 44
+Element is present at 7 position of array
+
+
+Complexity->
+
+Worst-case performance		O(n)
+Best-case performance		O(1)
+Average performance		O(n/2)
+Worst-case space complexity	O(1) iterative
